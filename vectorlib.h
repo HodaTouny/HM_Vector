@@ -60,8 +60,8 @@ public:
     int resize()    ;     // Relocate to bigger space
     bool empty()  ;       // Return true if size is 0
 
-// Friends
-    friend ostream & operator << (ostream & out,HMVector<T>);
+// Friend
+    friend ostream& operator << (ostream& out, const HMVector<T>& temp);
 };
 
 #endif //HM_VECTOR_VECTOR_LIB_H

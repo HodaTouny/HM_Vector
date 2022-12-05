@@ -104,3 +104,13 @@ template<class T>
 bool HMVector<T>::empty() {
 
 }
+
+/*template<class T>
+
+ostream& operator << (ostream& out, const HMVector<T>& temp){
+    for(int i=0;i<temp.Sizee;i++){
+        out<<temp.Element[i]<<" ";
+    }
+    return out;
+}
+*/
