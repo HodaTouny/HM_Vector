@@ -65,7 +65,10 @@ void HMVector<T> ::erase(iterator1, iterator2) {
 }
 template<class T>
 void HMVector<T> ::clear() {
-
+    this->Sizee =0;
+    for(int i=0;i<this->size();i++){
+        this->Element[i] =0;
+    }
 }
 template<class T>
 void HMVector<T> ::insert(iterator, T) {
