@@ -5,6 +5,11 @@
 #define HM_VECTOR_VECTOR_LIB_H
 #include "bits/stdc++.h"
 using namespace std;
+template<class T> class HMVector;
+
+template<class T>
+ostream& operator<<(ostream&out,const HMVector<T>& temp);
+
 template<class T>
 class HMVector{
 private:
@@ -61,7 +66,8 @@ public:
     bool empty()  ;       // Return true if size is 0
 
 // Friend
-    friend ostream& operator << (ostream& out, const HMVector<T>& temp);
+    friend ostream& operator<< <T> (ostream& out, const HMVector<T>& temp);
+
 };
 
 #endif //HM_VECTOR_VECTOR_LIB_H

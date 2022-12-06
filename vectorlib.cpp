@@ -72,13 +72,36 @@ iterator HMVector<T> ::end() {
 
 }*/
 template<class T>
-bool HMVector<T> ::operator==(const HMVector<T>& obj) {
+bool HMVector<T> ::operator==(const HMVector<T>& obj){
+    if(this->size()!= obj.size()){
+        return false;
+    }else{
+        for(int i=0;i<this->size();i++){
+            if(Element[i] != obj.Element[i]){
+                return false;
+            }
+        }
+    }
+    return true;
 
 }
 template<class T>
-bool HMVector<T> ::operator< (const HMVector<T>& obj) {
-
-}
+bool HMVector<T> ::operator< (const HMVector<T>& obj){
+    int x =0;
+    if(this->size()> obj.size()){
+        x = this->size();
+    }else{
+        x = obj.size();
+    }
+    for(int i=0;i<x;i++){
+        if(Element[i] != obj.Element[i]){
+            if(Element[i]<obj.Element[i]){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }}
 template<class T>
 int HMVector<T> ::size() const{
     return Sizee;
@@ -102,15 +125,17 @@ int HMVector<T> ::resize(){
 }
 template<class T>
 bool HMVector<T>::empty() {
-
+    int x = size();
+    if(x==0)
+        return true;
+    else
+        return false;
 }
 
-/*template<class T>
-
-ostream& operator << (ostream& out, const HMVector<T>& temp){
+template<class T>
+ostream& operator <<(ostream& out, const HMVector<T>& temp){
     for(int i=0;i<temp.Sizee;i++){
         out<<temp.Element[i]<<" ";
     }
     return out;
 }
-*/
