@@ -7,6 +7,6 @@ int main() {
     HMVector<int> v(n,5);
     HMVector<int> m(c,5);
     cout<<v[6]<<endl;
-    //cout<<v[3]<<endl;
+   // cout<<v[3]<<endl;
     return 0;
 }

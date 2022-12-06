@@ -39,7 +39,9 @@ template<class T>
 T &HMVector<T>::operator[](int i) {
     if( i<0 || i > this->size()-1)
     {
-        cout<<"Array index isn't found.\n";
+
+        //cout<<"Array index isn't found.\n";
+        throw invalid_argument("out of index");
     }else {
         return *(this->Element + i);
     }
