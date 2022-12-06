@@ -33,7 +33,7 @@ public:
 
     HMVector &operator=(const HMVector && obj); // Move assignment
 
-    T& operator[](int); // Access item by reference  // Access operations
+    T& operator[](int i); // Access item by reference  // Access operations
     // Throw an exception if out of range
 
     // Modifying operations

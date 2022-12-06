@@ -36,7 +36,13 @@ HMVector<T> &HMVector<T>::operator=(const HMVector &&obj) {
 
 }
 template<class T>
-T &HMVector<T>::operator[](int) {
+T &HMVector<T>::operator[](int i) {
+    if( i<0 || i > this->size()-1)
+    {
+        cout<<"Array index isn't found.\n";
+    }else {
+        return *(this->Element + i);
+    }
 
 }
 template<class T>
