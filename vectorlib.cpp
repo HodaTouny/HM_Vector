@@ -89,8 +89,14 @@ T &HMVector<T>::operator[](int i) {
 
 }
 template<class T>
-int HMVector<T> ::push_back(T) {
-
+int HMVector<T> ::push_back(T x) {
+    if(this->size()> this->capacity()){
+        this->resize();
+        Element[size()] = x;
+    }else{
+        Element[size()] = x;
+    }
+    this->Sizee+=1;
 }
 template<class T>
 T HMVector<T> ::pop_back() {

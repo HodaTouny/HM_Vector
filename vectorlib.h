@@ -37,7 +37,7 @@ public:
     // Throw an exception if out of range
 
     // Modifying operations
-    int push_back(T) ;// Add item to end of vec & return # of items
+    int push_back(T x) ;// Add item to end of vec & return # of items
     // Increase capacity of needed
     T pop_back() ;    // Remove and return last element in vec
     void erase(iterator);      // Remove item at iterator
