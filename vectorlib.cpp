@@ -19,29 +19,70 @@ HMVector<T>::HMVector(T*x,int n) {
     }
 
 }
-template<class T>
-HMVector<T>::HMVector(const HMVector &obj) {
 
+template<class T>
+// Copy Constructor
+HMVector<T>::HMVector(const HMVector& obj) {
+    Sizee=obj.Sizee;
+    Capacity=obj.Capacity;
+    Element = new T[Capacity];
+    for (int i = 0; i < Sizee; ++i) {
+        Element[i] = obj.Element[i];
+    }
 }
+
 template<class T>
 HMVector<T>::~HMVector() {
     delete [] Element;
 }
 template<class T>
 HMVector<T> & HMVector<T>::operator=(const HMVector &obj) {
+    if (this != &obj) {
+        delete[] Element;
+        Sizee = obj.Sizee;
+        Capacity = obj.Capacity;
+        Element= new T [Capacity];
+        for (int i = 0; i < Sizee; i++)
+           Element[i] = obj.Element[i];
+    }
+    return *this;
 
 }
 template<class T>
 HMVector<T> &HMVector<T>::operator=(const HMVector &&obj) {
+    if (this != &obj) {
+        delete[] Element;
+        Sizee = obj.Sizee;
+        Capacity = obj.Capacity;
+        Element= new T [Capacity];
+        for (int i = 0; i < Sizee; i++)
+            Element[i] = obj.Element[i];
 
-}
+
+
+       Element = obj._data;
+        Sizee = obj.Sizee;
+        Capacity = obj.Capacity;
+        obj.Element = nullptr;
+        obj.Sizee = 0;
+        obj.Capacity = 0;
+    }
+    return *this;
+    }
+
+
+
+
+
+
 template<class T>
 T &HMVector<T>::operator[](int i) {
     if( i<0 || i > this->size()-1)
     {
 
         //cout<<"Array index isn't found.\n";
-        throw invalid_argument("out of index");
+        //throw invalid_argument("out of index");
+        exit(0);
     }else {
         return *(this->Element + i);
     }
@@ -53,8 +94,21 @@ int HMVector<T> ::push_back(T) {
 }
 template<class T>
 T HMVector<T> ::pop_back() {
+    T temp = Element[Sizee - 1];
+    T *newArray = new T[Sizee-1];
+    for (int i = 0; i < Sizee-1; ++i) {
+        newArray[i]=Element[i];
+    }
+    delete[] Element;
+    Element = newArray;
+    newArray= nullptr;
+    Sizee--;
+    return temp;
+
 
 }
+
+
 template<class T>
 void HMVector<T> ::erase(iterator) {
 

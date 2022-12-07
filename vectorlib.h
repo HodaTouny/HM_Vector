@@ -25,7 +25,7 @@ public:
 
     HMVector (T*x,int n );	// Initialize by n items from array
 
-    HMVector (const HMVector & obj);	// Initialize with a copy
+    HMVector (const HMVector & obj);    // Copy Constructor
 
     ~HMVector()	;		// Delete allocated memory
 

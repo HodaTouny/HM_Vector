@@ -1,16 +1,14 @@
 #include "bits/stdc++.h"
 using namespace std;
 #include "vectorlib.cpp"
-// ozboty al [].
 int main() {
    int n[5]={1,2,3,2,5};
    int c[5] ={1,2,3,4,5};
     HMVector<int> v(n,5);
     HMVector<int> m(c,5);
-    //cout<<v[6]<<endl;
-    //cout<<v[3]<<endl;
-    v.clear();
-    cout<<v;
+   // cout<<v[6]<<endl;
+   // cout<<v[3]<<endl;
+   cout<<v.pop_back()<<endl;
+   cout<<v;
     return 0;
 }
-
