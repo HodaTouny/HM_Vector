@@ -14,13 +14,12 @@ template<class T>
 class HMVector{
 private:
     // msh mot2kda mn al iterators kda bas 3l4an al error ymshy!!
-
-    using iterator = T*;
-    using  iterator1 =T*;
-    using iterator2 = T*;
     T* Element;
     int Sizee,Capacity;
 public:
+    using iterator = T*;
+    using  iterator1 =T*;
+    using iterator2 = T*;
     HMVector (int n);	// Initialize by specific capacity // No content is added, size = 0 // Assign a default size value
 
     HMVector (T*x,int n );	// Initialize by n items from array
@@ -50,9 +49,13 @@ public:
     // Throw exception if invalid // Iterators 		// Supports *, + and ++ operations at least
 // Can use: typedef T* iterator // Or u can use std::iterator so you can // apply STL algorithms on XYVector
 
-   iterator begin();	// Return an iterator (T*)
+    iterator begin(){
+        return iterator(Element);
+    } // Return an iterator (T*)
 
-    iterator end();	// Return an iterator (T*)
+    iterator end(){
+        return iterator(Element+size());
+    }	// Return an iterator (T*)
 
 // Comparison operations
     bool operator==(const HMVector<T>& obj) ;// Return true if ==

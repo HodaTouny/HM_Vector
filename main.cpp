@@ -8,11 +8,15 @@ int main() {
     HMVector<int> m(c,5);
    // cout<<v[6]<<endl;
    // cout<<v[3]<<endl;
-    cout<<v.size()<<" "<<v.capacity()<<endl;
+    //cout<<v.size()<<" "<<v.capacity()<<endl;
    v.push_back(7);
    v.push_back(5);
-    v.push_back(4);
-   cout<<v<<endl;
-  cout<<v.size()<<" "<<v.capacity()<<endl;
+   v.push_back(4);
+   HMVector<int> :: iterator ptr;
+   for(ptr = v.begin();ptr<v.end();ptr++){
+        cout<<*ptr<<" ";
+   }
+
+  //cout<<v.size()<<" "<<v.capacity()<<endl;
     return 0;
 }
