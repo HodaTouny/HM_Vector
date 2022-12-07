@@ -2,6 +2,7 @@
 // Created by Hoda Touny on 12/5/2022.
 //
 #include "vectorlib.h"
+// Constructors and Big 4
 template<class T>
 HMVector<T>::HMVector(int n){
     Sizee=0;
@@ -31,10 +32,6 @@ HMVector<T>::HMVector(const HMVector& obj) {
     }
 }
 
-template<class T>
-HMVector<T>::~HMVector() {
-    delete [] Element;
-}
 template<class T>
 HMVector<T> & HMVector<T>::operator=(const HMVector &obj) {
     if (this != &obj) {
@@ -70,11 +67,11 @@ HMVector<T> &HMVector<T>::operator=(const HMVector &&obj) {
     return *this;
     }
 
-
-
-
-
-
+template<class T>
+HMVector<T>::~HMVector() {
+    delete [] Element;
+}
+// Access operations
 template<class T>
 T &HMVector<T>::operator[](int i) {
     if( i<0 || i > this->size()-1)
@@ -88,6 +85,7 @@ T &HMVector<T>::operator[](int i) {
     }
 
 }
+// Modifying operations
 template<class T>
 int HMVector<T> ::push_back(T x) {
     if(this->size()>=this->capacity()){
@@ -114,7 +112,6 @@ T HMVector<T> ::pop_back() {
 
 }
 
-
 template<class T>
 void HMVector<T> ::erase(iterator) {
 
@@ -140,8 +137,7 @@ void HMVector<T> ::insert(iterator pos, T x){
         temp[i] = Element[i];
     }
     int index = pos - Element;
-    //cout<<index<<endl;
-   delete [] Element;
+    delete [] Element;
     Element = new T[Capacity];
    for(int i=0;i<index;i++){
        Element[i] = temp[i];
@@ -152,7 +148,7 @@ void HMVector<T> ::insert(iterator pos, T x){
     }
     Sizee+=1;
 }
-
+//Comparison operations
 template<class T>
 bool HMVector<T> ::operator==(const HMVector<T>& obj){
     if(this->size()!= obj.size()){
@@ -170,10 +166,10 @@ bool HMVector<T> ::operator==(const HMVector<T>& obj){
 template<class T>
 bool HMVector<T> ::operator< (const HMVector<T>& obj){
     int x =0;
-    if(this->size()> obj.size()){
-        x = this->size();
+    if(Sizee> obj.Sizee){
+        x = Sizee;
     }else{
-        x = obj.size();
+        x = obj.Sizee;
     }
     for(int i=0;i<x;i++){
         if(Element[i] != obj.Element[i]){
@@ -184,14 +180,7 @@ bool HMVector<T> ::operator< (const HMVector<T>& obj){
             }
         }
     }}
-template<class T>
-int HMVector<T> ::size() const{
-    return Sizee;
-}
-template<class T>
-int HMVector<T> ::capacity() const {
-    return Capacity;
-}
+// Capacity operations
 template<class T>
 int HMVector<T> ::resize(){
     T temp[Capacity*2];
@@ -213,7 +202,7 @@ bool HMVector<T>::empty() {
     else
         return false;
 }
-
+//friends
 template<class T>
 ostream& operator <<(ostream& out, const HMVector<T>& temp){
     for(int i=0;i<temp.Sizee;i++){

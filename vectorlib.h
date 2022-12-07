@@ -63,8 +63,8 @@ public:
     // Return true if first different item in this is < in other
 
 // Capacity operations
-    int size() const;    // Return current size of vec
-    int capacity() const ;// Return size of current allocated array
+    int size() const{return Sizee;}    // Return current size of vec
+    int capacity() const{return Capacity;}// Return size of current allocated array
     int resize()    ;     // Relocate to bigger space
     bool empty()  ;       // Return true if size is 0
 
