@@ -12,6 +12,6 @@ int main() {
    v.push_back(7);
    v.push_back(5);
    cout<<v<<endl;
-   cout<<v.size()<<" "<<v.capacity()<<endl;
+  cout<<v.size()<<" "<<v.capacity()<<endl;
     return 0;
 }
