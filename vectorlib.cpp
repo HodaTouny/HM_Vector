@@ -113,11 +113,35 @@ T HMVector<T> ::pop_back() {
 }
 
 template<class T>
-void HMVector<T> ::erase(iterator) {
-
+void HMVector<T> ::erase(iterator pos) {
+    T temp = Element[pos];
+    T *newArray = new T[Sizee-1];
+    for (int i = 0; i < Sizee-1; ++i) {
+        if (Element[i] == temp) {
+            continue;
+        }
+        newArray[i]=Element[i];
+        }
+    delete[] Element;
+    Element = newArray;
+    newArray= nullptr;
+    Sizee--;
 }
 template<class T>
-void HMVector<T> ::erase(iterator1, iterator2) {
+void HMVector<T> ::erase(iterator1 pos1, iterator2 pos2) {
+        T* newarr=new T[Sizee] ;
+        if(pos1<pos2){
+            for (int i=0;i<pos1;i++){
+                newarr[i]=Element[i];
+            }
+            for(int j=pos2+1;j<Sizee;j++){
+                newarr[j]==Element[j];
+            }
+            delete[] Element;
+            Element = newarr;
+            newarr= nullptr;
+           // Sizee--;
+        }
 
 }
 template<class T>

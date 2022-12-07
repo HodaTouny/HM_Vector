@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/20100/Desktop/Assigment 3-2/main.cpp" "CMakeFiles/HM_Vector.dir/main.cpp.obj" "gcc" "CMakeFiles/HM_Vector.dir/main.cpp.obj.d"
-  "C:/Users/20100/Desktop/Assigment 3-2/vectorlib.cpp" "CMakeFiles/HM_Vector.dir/vectorlib.cpp.obj" "gcc" "CMakeFiles/HM_Vector.dir/vectorlib.cpp.obj.d"
+  "D:/Users/Maya/desktop/HM_Vector/main.cpp" "CMakeFiles/HM_Vector.dir/main.cpp.obj" "gcc" "CMakeFiles/HM_Vector.dir/main.cpp.obj.d"
+  "D:/Users/Maya/desktop/HM_Vector/vectorlib.cpp" "CMakeFiles/HM_Vector.dir/vectorlib.cpp.obj" "gcc" "CMakeFiles/HM_Vector.dir/vectorlib.cpp.obj.d"
   )
 
 # Targets to which this target links.
