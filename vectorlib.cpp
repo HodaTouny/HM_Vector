@@ -90,7 +90,7 @@ T &HMVector<T>::operator[](int i) {
 }
 template<class T>
 int HMVector<T> ::push_back(T x) {
-    if(this->size()> this->capacity()){
+    if(this->size()>=this->capacity()){
         this->resize();
         Element[size()] = x;
     }else{
