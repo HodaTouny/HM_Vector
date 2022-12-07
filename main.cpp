@@ -12,11 +12,10 @@ int main() {
    v.push_back(7);
    v.push_back(5);
    v.push_back(4);
-   HMVector<int> :: iterator ptr;
-   for(ptr = v.begin();ptr<v.end();ptr++){
-        cout<<*ptr<<" ";
-   }
-
+   HMVector<int> :: iterator ptr=v.begin()+2;
+   //cout<<v<<endl;
+   v.insert(ptr,9);
+   cout<<v;
   //cout<<v.size()<<" "<<v.capacity()<<endl;
     return 0;
 }

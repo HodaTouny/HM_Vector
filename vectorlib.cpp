@@ -131,17 +131,28 @@ void HMVector<T> ::clear() {
     }
 }
 template<class T>
-void HMVector<T> ::insert(iterator, T) {
-
+void HMVector<T> ::insert(iterator pos, T x){
+    if(Sizee >= Capacity){
+        this->resize();
+    }
+    T temp[Capacity];
+    for (int i = 0; i<Sizee; ++i) {
+        temp[i] = Element[i];
+    }
+    int index = pos - Element;
+    //cout<<index<<endl;
+   delete [] Element;
+    Element = new T[Capacity];
+   for(int i=0;i<index;i++){
+       Element[i] = temp[i];
+   }
+   Element[index] = x;
+    for(int i=index;i<=Sizee;i++){
+        Element[i+1] = temp[i];
+    }
+    Sizee+=1;
 }
-/*template<class T>
-iterator HMVector<T> ::begin() {
 
-}
-template<class T>
-iterator HMVector<T> ::end() {
-
-}*/
 template<class T>
 bool HMVector<T> ::operator==(const HMVector<T>& obj){
     if(this->size()!= obj.size()){
