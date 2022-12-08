@@ -111,40 +111,42 @@ T HMVector<T> ::pop_back() {
 
 
 }
-
 template<class T>
-void HMVector<T> ::erase(iterator pos) {
-    T temp = Element[pos];
+void HMVector<T> ::erase(iterator pos){
+    int index = pos -begin();
+    T temp = Element[index];
     T *newArray = new T[Sizee-1];
-    for (int i = 0; i < Sizee-1; ++i) {
-        if (Element[i] == temp) {
-            continue;
-        }
+    for (int i = 0; i < index; ++i) {
         newArray[i]=Element[i];
-        }
+    }
+    for (int i = index; i < Sizee; ++i) {
+        newArray[i]=Element[i+1];
+    }
     delete[] Element;
+    Sizee--;
     Element = newArray;
     newArray= nullptr;
-    Sizee--;
 }
+
 template<class T>
 void HMVector<T> ::erase(iterator1 pos1, iterator2 pos2) {
-        T* newarr=new T[Sizee] ;
-        if(pos1<pos2){
-            for (int i=0;i<pos1;i++){
-                newarr[i]=Element[i];
-            }
-            for(int j=pos2+1;j<Sizee;j++){
-                newarr[j]==Element[j];
-            }
-            delete[] Element;
-            Element = newarr;
-            newarr= nullptr;
-           // Sizee--;
+    int index = pos1 -begin();
+    int index2=pos2 - begin() ;
+    int newSize=Sizee-(index2-index);
+    T* newarr=new T[newSize] ;
+    if(index<index2){
+        for (int i=0;i<index;i++){
+            newarr[i]=Element[i];
         }
-
-}
-template<class T>
+        for(int j=0;j<Sizee-index2;j++){
+            newarr[j+index]=Element[j+index2];
+        }
+        delete[] Element;
+        Element = newarr;
+        newarr= nullptr;
+        Sizee=newSize;
+    }
+}template<class T>
 void HMVector<T> ::clear() {
     this->Sizee =0;
     for(int i=0;i<this->size();i++){
