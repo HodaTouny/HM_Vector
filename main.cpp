@@ -6,8 +6,9 @@ int main() {
    int c[5] ={1,2,3,4,5};
     HMVector<int> v(2);
     HMVector<int> m(c,5);
-   // cout<<v[6]<<endl;
-   // cout<<v[3]<<endl;
+        cout << m[1] << endl;
+        cout << m[6] << endl;
+
     //cout<<v.size()<<" "<<v.capacity()<<endl;
    v.push_back(7);
    v.push_back(5);

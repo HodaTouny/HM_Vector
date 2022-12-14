@@ -54,15 +54,12 @@ HMVector<T> &HMVector<T>::operator=(const HMVector &&obj) {
         Element= new T [Capacity];
         for (int i = 0; i < Sizee; i++)
             Element[i] = obj.Element[i];
-
-
-
-       Element = obj._data;
-        Sizee = obj.Sizee;
-        Capacity = obj.Capacity;
-        obj.Element = nullptr;
-        obj.Sizee = 0;
-        obj.Capacity = 0;
+//       Element = obj._data;
+//        Sizee = obj.Sizee;
+//        Capacity = obj.Capacity;
+//        obj.Element = nullptr;
+//        obj.Sizee = 0;
+//        obj.Capacity = 0;
     }
     return *this;
     }
@@ -74,15 +71,18 @@ HMVector<T>::~HMVector() {
 // Access operations
 template<class T>
 T &HMVector<T>::operator[](int i) {
-    if( i<0 || i > this->size()-1)
-    {
-
-        //cout<<"Array index isn't found.\n";
-        //throw invalid_argument("out of index");
-        exit(0);
-    }else {
-        return *(this->Element + i);
+    try {
+        if (i < 0 || i > this->size() - 1) {
+            //cout<<"Array index isn't found.\n";
+            throw exception();
+        } else {
+            return *(this->Element + i);
+        }
     }
+    catch (exception &e) {
+        cout << e.what() << endl;
+    }
+    cout<<"Array index isn't found.\n";
 
 }
 // Modifying operations

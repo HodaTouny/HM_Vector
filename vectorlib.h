@@ -20,6 +20,7 @@ public:
     using iterator = T*;
     using  iterator1 =T*;
     using iterator2 = T*;
+
     HMVector (int n);	// Initialize by specific capacity // No content is added, size = 0 // Assign a default size value
 
     HMVector (T*x,int n );	// Initialize by n items from array
