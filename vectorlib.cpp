@@ -48,18 +48,13 @@ HMVector<T> & HMVector<T>::operator=(const HMVector &obj) {
 template<class T>
 HMVector<T> &HMVector<T>::operator=(const HMVector &&obj) {
     if (this != &obj) {
-        delete[] Element;
+       delete[] Element;
+       Element = obj._data;
         Sizee = obj.Sizee;
         Capacity = obj.Capacity;
-        Element= new T [Capacity];
-        for (int i = 0; i < Sizee; i++)
-            Element[i] = obj.Element[i];
-//       Element = obj._data;
-//        Sizee = obj.Sizee;
-//        Capacity = obj.Capacity;
-//        obj.Element = nullptr;
-//        obj.Sizee = 0;
-//        obj.Capacity = 0;
+        obj.Element = nullptr;
+        obj.Sizee = 0;
+        obj.Capacity = 0;
     }
     return *this;
     }
