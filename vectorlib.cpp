@@ -10,6 +10,7 @@
 // Constructors and Big 4
 /**
     * @brief Construct a new HMVector object
+    * @details Initialize by specific capacity
     * @param n
   */
 
@@ -21,6 +22,7 @@ HMVector<T>::HMVector(int n){
 }
 /**
     * @brief Construct a new HMVector object
+    * @details Initialize by n items from array
     * @param x
     * @param n
   */
@@ -36,7 +38,8 @@ HMVector<T>::HMVector(T*x,int n) {
 
 }
 /**
-    * @brief Construct a new HMVector object
+    * @brief  constructor
+    * @details copy constructor
     * @param obj
   */
 
@@ -51,7 +54,8 @@ HMVector<T>::HMVector(const HMVector& obj) {
     }
 }
 /**
-    * @brief Destroy the HMVector object
+    * @brief  assignment operator
+    * @details copy assignment
     * @param obj
   */
 
@@ -69,7 +73,8 @@ HMVector<T> & HMVector<T>::operator=(const HMVector &obj) {
 
 }
 /**
-    * @brief Destroy the HMVector object
+    * @brief assignment operator
+    * @details move assignment
     * @param obj
   */
 template<class T>
@@ -86,7 +91,8 @@ HMVector<T> &HMVector<T>::operator=(const HMVector &&obj) {
     return *this;
     }
 /**
-    * @brief Destroy the HMVector object
+    * @brief Destructor
+    * @details Delete allocated memory
   */
 template<class T>
 HMVector<T>::~HMVector() {
@@ -94,7 +100,8 @@ HMVector<T>::~HMVector() {
 }
 // Access operations
 /**
-    * @brief Access item by reference
+    * @brief operator [] overloading
+    * @details  Access item by reference, Throw an exception if out of range
     * @param i
     * @return T&
   */
@@ -109,7 +116,8 @@ T &HMVector<T>::operator[](int i) {
 }
 // Modifying operations
 /**
-    * @brief Add item to end of vec & return # of items
+    * @brief push items
+    * @details  Add item to end of vec & return size of vector
     * @param x
   */
 template<class T>
@@ -124,7 +132,8 @@ int HMVector<T> ::push_back(T x) {
     return this->size();
 }
 /**
-    * @brief Remove last item & return it
+    * @brief pop items
+    * @details  Remove last item & return it
     * @return T
   */
 template<class T>
@@ -141,7 +150,8 @@ T HMVector<T> ::pop_back() {
     return temp;
 }
 /**
-    * @brief erase item at position
+    * @brief erase
+    * @details  Remove item at position & return it
     * @param pos
   */
 template<class T>
@@ -162,6 +172,7 @@ void HMVector<T> ::erase(iterator pos){
 }
 /**
     * @brief erase items in range
+    * @details  Remove items in range
     * @param pos1
     * @param pos2
   */
@@ -185,7 +196,8 @@ void HMVector<T> ::erase(iterator1 pos1, iterator2 pos2) {
     }
 }
 /**
-    * @brief clear all items
+    * @brief clear vector items
+    * @details  Remove all items
   */
 template<class T>
 void HMVector<T> ::clear() {
@@ -195,7 +207,8 @@ void HMVector<T> ::clear() {
     }
 }
 /**
-    * @brief insert item at position
+    * @brief insert item
+    * @details  Insert item at position
     * @param pos
     * @param x
   */
@@ -223,6 +236,7 @@ void HMVector<T> ::insert(iterator pos, T x){
 //Comparison operations
 /**
     * @brief compare two vectors
+    * @details  Compare two vectors return true if equal,else return false
     * @param obj
     * @return true
     * @return false
@@ -243,6 +257,7 @@ bool HMVector<T> ::operator==(const HMVector<T>& obj){
 }
 /**
     * @brief compare two vectors
+    * @details  Compare two vectors return which is greater
     * @param obj
     * @return true
     * @return false
@@ -267,6 +282,7 @@ bool HMVector<T> ::operator< (const HMVector<T>& obj){
 // Capacity operations
 /**
     * @brief resize vector
+    * @details  Resize vector to double of its capacity
     * @return int
   */
 template<class T>
@@ -284,6 +300,7 @@ int HMVector<T> ::resize(){
 }
 /**
     * @brief check if vector is empty
+    * @details the function returns true if vector is empty else return false
     * @return int
   */
 template<class T>
@@ -296,7 +313,8 @@ bool HMVector<T>::empty() {
 }
 //friends
 /**
-    * @brief print vector
+    * @brief cout operator overloading
+    * @details  print vector
     * @param out
     * @param temp
     * @return ostream&
