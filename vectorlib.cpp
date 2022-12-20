@@ -1,14 +1,29 @@
-//
-// Created by Hoda Touny on 12/5/2022.
-//
+/**
+ * @file vectorlib.cpp
+ * @author hoda samir/maya hesham
+ * @brief Implementation of the HMVector class
+ * @version 0.1
+ * @date 2022-12-05
+ * @copyright Copyright FCAI (c) 2022
+ */
 #include "vectorlib.h"
 // Constructors and Big 4
+/**
+    * @brief Construct a new HMVector object
+    * @param n
+  */
+
 template<class T>
 HMVector<T>::HMVector(int n){
     Sizee=0;
     Capacity=n;
     Element = new T[Capacity];
 }
+/**
+    * @brief Construct a new HMVector object
+    * @param x
+    * @param n
+  */
 
 template<class T>
 HMVector<T>::HMVector(T*x,int n) {
@@ -20,6 +35,10 @@ HMVector<T>::HMVector(T*x,int n) {
     }
 
 }
+/**
+    * @brief Construct a new HMVector object
+    * @param obj
+  */
 
 template<class T>
 // Copy Constructor
@@ -31,6 +50,10 @@ HMVector<T>::HMVector(const HMVector& obj) {
         Element[i] = obj.Element[i];
     }
 }
+/**
+    * @brief Destroy the HMVector object
+    * @param obj
+  */
 
 template<class T>
 HMVector<T> & HMVector<T>::operator=(const HMVector &obj) {
@@ -45,6 +68,10 @@ HMVector<T> & HMVector<T>::operator=(const HMVector &obj) {
     return *this;
 
 }
+/**
+    * @brief Destroy the HMVector object
+    * @param obj
+  */
 template<class T>
 HMVector<T> &HMVector<T>::operator=(const HMVector &&obj) {
     if (this != &obj) {
@@ -58,29 +85,33 @@ HMVector<T> &HMVector<T>::operator=(const HMVector &&obj) {
     }
     return *this;
     }
-
+/**
+    * @brief Destroy the HMVector object
+  */
 template<class T>
 HMVector<T>::~HMVector() {
     delete [] Element;
 }
 // Access operations
+/**
+    * @brief Access item by reference
+    * @param i
+    * @return T&
+  */
 template<class T>
 T &HMVector<T>::operator[](int i) {
-    try {
-        if (i < 0 || i > this->size() - 1) {
-            //cout<<"Array index isn't found.\n";
-            throw exception();
-        } else {
-            return *(this->Element + i);
-        }
-    }
-    catch (exception &e) {
-        cout << e.what() << endl;
-    }
-    cout<<"Array index isn't found.\n";
+    if (i < 0 || i > this->size() - 1) {
+        throw invalid_argument("out of index");
+    } else {
+        return *(this->Element + i);
 
+    }
 }
 // Modifying operations
+/**
+    * @brief Add item to end of vec & return # of items
+    * @param x
+  */
 template<class T>
 int HMVector<T> ::push_back(T x) {
     if(this->size()>=this->capacity()){
@@ -90,7 +121,12 @@ int HMVector<T> ::push_back(T x) {
         Element[size()] = x;
     }
     this->Sizee+=1;
+    return this->size();
 }
+/**
+    * @brief Remove last item & return it
+    * @return T
+  */
 template<class T>
 T HMVector<T> ::pop_back() {
     T temp = Element[Sizee - 1];
@@ -103,9 +139,11 @@ T HMVector<T> ::pop_back() {
     newArray= nullptr;
     Sizee--;
     return temp;
-
-
 }
+/**
+    * @brief erase item at position
+    * @param pos
+  */
 template<class T>
 void HMVector<T> ::erase(iterator pos){
     int index = pos -begin();
@@ -122,7 +160,11 @@ void HMVector<T> ::erase(iterator pos){
     Element = newArray;
     newArray= nullptr;
 }
-
+/**
+    * @brief erase items in range
+    * @param pos1
+    * @param pos2
+  */
 template<class T>
 void HMVector<T> ::erase(iterator1 pos1, iterator2 pos2) {
     int index = pos1 -begin();
@@ -141,13 +183,22 @@ void HMVector<T> ::erase(iterator1 pos1, iterator2 pos2) {
         newarr= nullptr;
         Sizee=newSize;
     }
-}template<class T>
+}
+/**
+    * @brief clear all items
+  */
+template<class T>
 void HMVector<T> ::clear() {
     this->Sizee =0;
     for(int i=0;i<this->size();i++){
         this->Element[i] =0;
     }
 }
+/**
+    * @brief insert item at position
+    * @param pos
+    * @param x
+  */
 template<class T>
 void HMVector<T> ::insert(iterator pos, T x){
     if(Sizee >= Capacity){
@@ -170,6 +221,12 @@ void HMVector<T> ::insert(iterator pos, T x){
     Sizee+=1;
 }
 //Comparison operations
+/**
+    * @brief compare two vectors
+    * @param obj
+    * @return true
+    * @return false
+  */
 template<class T>
 bool HMVector<T> ::operator==(const HMVector<T>& obj){
     if(this->size()!= obj.size()){
@@ -184,6 +241,12 @@ bool HMVector<T> ::operator==(const HMVector<T>& obj){
     return true;
 
 }
+/**
+    * @brief compare two vectors
+    * @param obj
+    * @return true
+    * @return false
+  */
 template<class T>
 bool HMVector<T> ::operator< (const HMVector<T>& obj){
     int x =0;
@@ -202,6 +265,10 @@ bool HMVector<T> ::operator< (const HMVector<T>& obj){
         }
     }}
 // Capacity operations
+/**
+    * @brief resize vector
+    * @return int
+  */
 template<class T>
 int HMVector<T> ::resize(){
     T temp[Capacity*2];
@@ -215,6 +282,10 @@ int HMVector<T> ::resize(){
     }
     Capacity*=2;
 }
+/**
+    * @brief check if vector is empty
+    * @return int
+  */
 template<class T>
 bool HMVector<T>::empty() {
     int x = size();
@@ -224,6 +295,12 @@ bool HMVector<T>::empty() {
         return false;
 }
 //friends
+/**
+    * @brief print vector
+    * @param out
+    * @param temp
+    * @return ostream&
+  */
 template<class T>
 ostream& operator <<(ostream& out, const HMVector<T>& temp){
     for(int i=0;i<temp.Sizee;i++){

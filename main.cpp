@@ -7,7 +7,7 @@ int main() {
     HMVector<int> v(2);
     HMVector<int> m(c,5);
         cout << m[1] << endl;
-        cout << m[6] << endl;
+
 
     //cout<<v.size()<<" "<<v.capacity()<<endl;
    v.push_back(7);
@@ -23,6 +23,8 @@ int main() {
   // v.insert(ptr,9);
     v.erase(ptr);
     cout<<v;
+    cout<<endl;
+   // cout << m[6] << endl;
   //cout<<v.size()<<" "<<v.capacity()<<endl;
     return 0;
 }
